@@ -32,4 +32,14 @@ button {
   border: 1px solid rgb(65, 111, 165);
   border-radius: 15px;
   box-shadow: 2px 2px rgb(3, 3, 116);
+  cursor: pointer;
+}
+
+button:hover {
+  background: pink;
+  
+}
+
+button:active {
+  transform: translate(10px, 10px);
 }
