@@ -19,7 +19,9 @@ function randomSquare() {
 squares.forEach(square => {
   square.addEventListener('mousedown', () => {
     if (square.id === hitPosition) {
-      result++
+      result++;
+      score.textContext = result;
+      hitPosition = null;
     }
   })
 });
