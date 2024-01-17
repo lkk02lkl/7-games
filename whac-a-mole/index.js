@@ -28,7 +28,13 @@ squares.forEach(square => {
 
 function moveMole() {
   let timeId = null;
-  timeId = setInterval(randomSquare, 500);
+  timeId = setInterval(randomSquare, 900);
 }
 
 moveMole();
+
+function countDown() {
+
+}
+
+setInterval();
