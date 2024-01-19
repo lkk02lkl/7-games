@@ -8,6 +8,7 @@ const boardHeight = 300;
 let xDirection = -2;
 let yDirection = 2;
 let timeId;
+let score = 0;
 
 const userStart = [230, 10];
 let currentPosition = userStart;
@@ -105,6 +106,20 @@ function moveBall() {
 timeId = setInterval(moveBall, 30);
 
 function checkForCollisions() {
+
+  for (let i = 0; i < blocks.length; i++) {
+    if (
+      (ballCurrentPosition[0] > blocks[i].bottomLeft[0] && ballCurrentPosition[0] > blocks[i].bottomRight[0] && (ballCurrentPosition[1] + ballDiameter) > blocks[i].topLeft[1] && (ballCurrentPosition[1] + ballDiameter) > blocks[i].topRight[1]) 
+    ) {
+      const allBlocks = Array.from(document.querySelectorAll('.block'));
+      allBlocks[i].classList.remove('block');
+      blocks.slice(i, 1);
+      changeDirection();
+      score++;
+      scoreDisplay.innerHTML = score;
+    }
+  }
+
   if (ballCurrentPosition[0] >= (boardWidth - ballDiameter)
     || ballCurrentPosition[1] >= (boardHeight - ballDiameter)
     || ballCurrentPosition[0] <= 0
@@ -115,6 +130,7 @@ function checkForCollisions() {
   if (ballCurrentPosition[1] <= 0) {
     clearTimeout(timeId);
     scoreDisplay.innerHTML = 'You lose';
+    document.removeEventListener('keydown', moveUser);
   }
 }
 
