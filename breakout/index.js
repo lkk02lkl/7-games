@@ -3,6 +3,9 @@ const blockWidth = 100;
 const blockHeight = 20;
 const ballDiameter = 20;
 const boardWidth = 560;
+const boardHeight = 300;
+let xDirection = -2;
+let yDirection = 2;
 let timeId;
 
 const userStart = [230, 10];
@@ -106,5 +109,8 @@ function checkForCollisions() {
 }
 
 function changeDirection() {
-
+  if (xDirection === 2 && yDirection === 2) {
+    yDirection= -2;
+    return;
+  }
 }
