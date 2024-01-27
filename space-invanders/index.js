@@ -100,8 +100,9 @@ function moveInvaders() {
 invadersId = setInterval(moveInvaders, 600)
 
 function shoot(e) {
-  let laserId
-  let currentLaserIndex = currentShooterIndex
+  let laserId;
+  let currentLaserIndex = currentShooterIndex;
+
   function moveLaser() {
     squares[currentLaserIndex].classList.remove("laser");
     currentLaserIndex -= width
@@ -130,4 +131,4 @@ function shoot(e) {
   }
 }
 
-document.addEventListener('keydown', shoot)
+document.addEventListener('keydown', shoot);
